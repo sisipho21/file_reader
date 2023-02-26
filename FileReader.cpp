@@ -111,7 +111,10 @@ std::string TKSSIS001::printAllData()
 
 std::string TKSSIS001::dumpTags()
 {
-    return "dumping tags invoked";
+    std::ofstream outFile("tag.txt");
+    outFile << TKSSIS001::printAllData(); 
+    
+    return "Dumped tags in tag.txt file.";
 };
 
 std::string TKSSIS001::displayMenu()

@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
             std::cout << TKSSIS001::printTagData(tagname) << std::endl;
             
         }
-        else if (option == 'm')
+        else if (option == 'm') 
         {
             std::cout << TKSSIS001::displayMenu() <<  std::endl;
         }

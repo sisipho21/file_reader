@@ -1,0 +1,6 @@
+ALL TAGS:
+"TXT", 2, "text:and more text"
+"TAG1", 1, "hello there old tag"
+"TXT1", 1, "text"
+"Tag1", 1, "hello world"
+"txt", 1, "smaller, text"
