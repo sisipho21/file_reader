@@ -43,7 +43,7 @@ std::string TKSSIS001::readInFile(std::string fname)
 
     //closing the ifstream as we are done working with it
     myfile.close();
-    return "readInFIle envoked";
+    return "File " +fname+ " read successfully.";
 };
 
 
@@ -138,7 +138,7 @@ std::string TKSSIS001::dumpTags()
 
     std::ofstream outFile("tag.txt");
     outFile << TKSSIS001::printAllData(); 
-    return "Dumped tags in tag.txt file.";
+    return "Tags dumped in \'tag.txt\' file.";
 };
 
 std::string TKSSIS001::displayMenu()
