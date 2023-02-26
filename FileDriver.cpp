@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
         {
             std::string filename;
             std::cin >> filename;
-            std::cout << TKSSIS001::readInFile() << ". File name: " << filename << std::endl;
+            std::cout << TKSSIS001::readInFile(filename) << ". File name: " << filename << std::endl;
             
         }
         else if (option == 'p')

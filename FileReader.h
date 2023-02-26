@@ -8,7 +8,7 @@ namespace TKSSIS001
 {
     std::string addToStruct();
 
-    std::string readInFile();
+    std::string readInFile(std::string);
 
     std::string printTagData();
 

@@ -3,3 +3,6 @@
 
 #ignore all file with .exe extension
 *.exe
+
+#ignore the testing.cpp file
+/testing.cpp
