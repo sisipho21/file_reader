@@ -21,9 +21,8 @@ int main(int argc, char* argv[])
         }
         else if (option == 'r')
         {
-            std::cout << "Please enter file name" << std::endl;
             std::string filename;
-            std::getline(std::cin, filename);
+            std::cin >> filename;
             std::cout << TKSSIS001::readInFile() << ". File name: " << filename << std::endl;
             
         }
@@ -39,15 +38,14 @@ int main(int argc, char* argv[])
         }
         else if (option == 'l')
         {
-            std::cout << "Please enter file name" << std::endl;
-            std::string filename;
-            std::getline(std::cin, filename);
-            std::cout << TKSSIS001::printTagData() << std::endl;
+            std::string tagname;
+            std::cin >> tagname;
+            std::cout << TKSSIS001::printTagData() << ". Tag name: " << tagname << std::endl;
             
         }
         else if (option == 'm')
         {
-            std::cout << TKSSIS001::displayMenu() << std::endl;
+            std::cout << TKSSIS001::displayMenu() <<  std::endl;
         }
         else
         {
