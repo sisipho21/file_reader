@@ -10,7 +10,13 @@ std::vector<TKSSIS001::TagStruct> tagVector;
 
 std::string TKSSIS001::readInFile(std::string fname)
 {
-    //opening the file using ifstream object
+    //If tagVector is not empty, clear it so that only data in fname is pushed into tagVector
+    if (!tagVector.empty())
+    {
+        tagVector.clear();
+    }
+    
+    //opening the file using ifstream object. Checking that the file is opened successfully
     std::ifstream myfile(fname);
     if (!myfile)
     {
@@ -74,6 +80,13 @@ void TKSSIS001::addToStruct(std::string sTag, std::string sText)
 std::string TKSSIS001::printTagData(std::string tagname)
 {
     int vsize = tagVector.size();
+
+    //check if a file has been read in, If not, a prompt is returned for user to provide file name
+    if (vsize == 0)
+    {
+        return "A file has not been provided. Please enter \'r\' <filename> to read in a file.";
+    }
+
     std::string outString = "TAG: "+tagname+"\n";
     bool found = false;
 
@@ -98,9 +111,14 @@ std::string TKSSIS001::printTagData(std::string tagname)
 std::string TKSSIS001::printAllData()
 {
     int vsize = tagVector.size();
-    std::string outString = "ALL TAGS:\n";
+    //check if a file has been read in, If not, a prompt is returned for user to provide file name
+    if (vsize == 0)
+    {
+        return "A file has not been provided. Please enter \'r\' <filename> to read in a file.";
+    }
 
     //loop through the vector, returning information of the TagStruct object in a readable format
+    std::string outString = "ALL TAGS:\n";
     for (int i = 0; i < vsize; i++)
     {
         outString += "\"" + tagVector[i].tag + "\", " + std::to_string(tagVector[i].numTags) + ", \"" + tagVector[i].text + "\"\n" ;
@@ -111,9 +129,15 @@ std::string TKSSIS001::printAllData()
 
 std::string TKSSIS001::dumpTags()
 {
+    int vsize = tagVector.size();
+    //check if a file has been read in, If not, a prompt is returned for user to provide file name
+    if (vsize == 0)
+    {
+        return "A file has not been provided. Please enter \'r\' <filename> to read in a file.";
+    }
+
     std::ofstream outFile("tag.txt");
     outFile << TKSSIS001::printAllData(); 
-    
     return "Dumped tags in tag.txt file.";
 };
 
@@ -125,8 +149,6 @@ std::string TKSSIS001::displayMenu()
     sOut += "p: Print all tags \n";
     sOut += "d: Dump tags on data file tag.txt \n";
     sOut += "l: List tag data for given tag (include tag)\n";
-    sOut += "q: Exit the program\n";
-    sOut += "Please enter an option (r, p, d, l, q), and press Return/Enter";
-    
+    sOut += "q: Exit the program";  
     return sOut;
 };

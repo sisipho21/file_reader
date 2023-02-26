@@ -11,12 +11,12 @@ int main(int argc, char* argv[])
 
     for (;;) //infinite loop
     {
+        std::cout << "Please enter an option (r, p, d, l, q), and press Return/Enter" << std::endl;
         char option;
         std::cin >> option;
 
         if (option == 'q')
         {
-            //std::cout << "Program exited" << std::endl;
             break;
         }
         else if (option == 'r')
@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
         }
         else
         {
-            std::cout << "Please enter tags r, p, d, l, or q. For more explanation, enter \'m\'" << std::endl;
+            std::cout << "You have entered an invalid tag. For more explaination, enter \'m\'" <<  std::endl;
         }     
     }
     std::cout << "Thank you for using File Reader :)" << std::endl;
