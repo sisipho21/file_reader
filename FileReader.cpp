@@ -71,9 +71,28 @@ void TKSSIS001::addToStruct(std::string sTag, std::string sText)
     }
 };
 
-std::string TKSSIS001::printTagData()
+std::string TKSSIS001::printTagData(std::string tagname)
 {
-    return "3. printTagData envoked";
+    int vsize = tagVector.size();
+    std::string outString = "TAG: "+tagname+"\n";
+    bool found = false;
+
+    //iterate through the vector and find a tag that matches the given tag. Once found, return its information
+    for (int i = 0; i < vsize; i++)
+    {
+        if (tagVector[i].tag == tagname)
+        {
+            outString += "\"" + tagVector[i].tag + "\", " + std::to_string(tagVector[i].numTags) + ", \"" + tagVector[i].text + "\"\n" ;
+            found = true;
+        }
+    }
+    //if the tag is not found in vector, an appropriate message is returned
+    if (!found)
+    {
+        return "The tag "+tagname+" could not be found.";
+    }
+    
+    return outString;
 };
 
 std::string TKSSIS001::printAllData()
@@ -81,9 +100,10 @@ std::string TKSSIS001::printAllData()
     int vsize = tagVector.size();
     std::string outString = "ALL TAGS:\n";
 
+    //loop through the vector, returning information of the TagStruct object in a readable format
     for (int i = 0; i < vsize; i++)
     {
-        outString += "\"" + tagVector[i].tag + "\" ," + std::to_string(tagVector[i].numTags) + ", \"" + tagVector[i].text + "\"\n" ;
+        outString += "\"" + tagVector[i].tag + "\", " + std::to_string(tagVector[i].numTags) + ", \"" + tagVector[i].text + "\"\n" ;
     }
     
     return outString;
@@ -96,6 +116,7 @@ std::string TKSSIS001::dumpTags()
 
 std::string TKSSIS001::displayMenu()
 {
+    //returning the standard menu items to be displayed to the user, explaining what each tag does
     std::string sOut = "Menu items: \n";
     sOut += "r: Read and process tag file (add file name) \n";
     sOut += "p: Print all tags \n";

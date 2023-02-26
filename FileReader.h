@@ -10,7 +10,7 @@ namespace TKSSIS001
 
     std::string readInFile(std::string fname);
 
-    std::string printTagData();
+    std::string printTagData(std::string tagname);
 
     std::string printAllData();
 
@@ -24,8 +24,6 @@ namespace TKSSIS001
         int numTags;
         std::string text;
     };
-
-    //std::vector<TagStruct> tagVector;
     
 }
 

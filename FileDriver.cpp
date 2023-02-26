@@ -16,15 +16,14 @@ int main(int argc, char* argv[])
 
         if (option == 'q')
         {
-            std::cout << "Program exited" << std::endl;
+            //std::cout << "Program exited" << std::endl;
             break;
         }
         else if (option == 'r')
         {
             std::string filename;
             std::cin >> filename;
-            std::cout << TKSSIS001::readInFile(filename) << ". File name: " << filename << std::endl;
-            
+            std::cout << TKSSIS001::readInFile(filename) << std::endl;
         }
         else if (option == 'p')
         {
@@ -40,7 +39,7 @@ int main(int argc, char* argv[])
         {
             std::string tagname;
             std::cin >> tagname;
-            std::cout << TKSSIS001::printTagData() << ". Tag name: " << tagname << std::endl;
+            std::cout << TKSSIS001::printTagData(tagname) << std::endl;
             
         }
         else if (option == 'm')
