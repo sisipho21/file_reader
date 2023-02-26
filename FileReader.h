@@ -1,4 +1,4 @@
-/**
+/*
 * header file with function and struct definition
 */
 #ifndef _FILE_R
@@ -6,9 +6,9 @@
 
 namespace TKSSIS001
 {
-    std::string addToStruct();
+    void addToStruct(std::string sTag, std::string sText);
 
-    std::string readInFile(std::string);
+    std::string readInFile(std::string fname);
 
     std::string printTagData();
 
@@ -21,9 +21,11 @@ namespace TKSSIS001
     struct TagStruct
     {
         std::string tag;
-        int numTages;
+        int numTags;
         std::string text;
     };
+
+    //std::vector<TagStruct> tagVector;
     
 }
 

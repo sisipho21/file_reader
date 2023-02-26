@@ -54,7 +54,7 @@ void TKSSIS001::addToStruct(std::string sTag, std::string sText)
         if (sTag == tagVector[i].tag)
         {
             tagVector[i].numTags += 1;
-            tagVector[i].text += sText;
+            tagVector[i].text += ":"+sText;
             found = true;
         }
         
@@ -75,9 +75,18 @@ std::string TKSSIS001::printTagData()
 {
     return "3. printTagData envoked";
 };
+
 std::string TKSSIS001::printAllData()
 {
-    return "printaAll Data envoked";
+    int vsize = tagVector.size();
+    std::string outString = "ALL TAGS:\n";
+
+    for (int i = 0; i < vsize; i++)
+    {
+        outString += "\"" + tagVector[i].tag + "\" ," + std::to_string(tagVector[i].numTags) + ", \"" + tagVector[i].text + "\"\n" ;
+    }
+    
+    return outString;
 };
 
 std::string TKSSIS001::dumpTags()
